@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Uno</title>
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body>
+    <div id="menu_inicio">
+        <h1>Bienvenido al Juego</h1>
+        <h5>Piedra, Papel y Tijeras</h5>
+        <select id="opciones">
+            <option value="0">Finalizar Juego cuando</option>
+            <option value="5">Alguien Gane 5 partidas</option>
+            <option value="10">Alguien Gane 10 partidas</option>
+            <option value="15">Alguien Gane 15 partidas</option>
+            <option value="20">Alguien Gane 20 partidas</option>
+            <option value="infinito">Nunca</option>
+        </select>
+    </div>
+
+    <div id="area_juego" hidden>
+        <h1>area de juego</h1>
+        <div>
+            <div>
+                <h1>Jugador</h1>
+                <img id="img_jugador" src="" alt="">
+                <h6 id="puntajeJugador"></h6>
+            </div>
+
+            <div>
+                <h1>CPU</h1>
+                <img id="img_cpu" src="" alt="">
+                <h6 id="puntajeCPU"></h6>
+            </div>
+        </div>
+        <h6 id="resultado"></h6>
+        <div>
+            <button type="button" onclick="jugar(1)">Piedra</button>
+            <button type="button" onclick="jugar(2)">Papel</button>
+            <button type="button" onclick="jugar(3)">Tijeras</button>
+        </div>
+    </div>
+
+    <div id="area_volver" hidden>
+        <h4 id="mensajeResultado"></h4>
+        <h3>¿Desea Jugar de Nuevo?</h3>
+    </div>
+
+    <script src="src/funciones.js"></script>
+</body>
+</html>
