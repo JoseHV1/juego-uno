@@ -1,0 +1,15 @@
+.contenedor{
+    flex-direction: column;
+    min-height: 12rem; 
+    width: 20rem;
+}
+
+img{
+    width: 6rem;
+}
+
+@media screen and (max-width: 768px){
+    .contenedor{
+        width: 15rem;
+    }
+}
