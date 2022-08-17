@@ -13,9 +13,9 @@
             limite = opcion.value;
 
             if(limite != 5 && limite != 10 && limite != 15 && limite != 20 && limite != 'infinito'){
-                alert('Por favor. Seleccione una Opcion');
+                alertify.warning('Por favor seleccione cuantas partidas durara el juego');
             }else if(limite == 5 || limite == 10 || limite == 15 || limite == 20){
-                limiteSeleccionado.innerText = "Limite Ganadas "+limite;
+                limiteSeleccionado.innerText = "Limite partidas Ganadas "+limite;
                 document.getElementById("presentacion").classList.add('hidden');
                 contenedorJuego.classList.remove('hidden');
             }else if(limite == 'infinito'){
@@ -37,19 +37,15 @@
 
     // Imagenes
     var imagen = document.createElement('img');
-    // imagen.classList = 'rounded-md';
-    // imagen.src = 'assets/img/default.png';
     resultadoJugado.appendChild(imagen);
 
     var imagen_dos = document.createElement('img');
-    // imagen_dos.classList = 'rounded-md';
-    // imagen_dos.src = 'assets/img/default.png';
     resultadoCPU.appendChild(imagen_dos);
 
     // Logica Juego
     function juego(opcionJugada) {
         if(puntosJugador >= limite || puntosCPU >= limite){
-            alert('Finalizó el Juego. Por favor espere el Resultado');
+            alertify.notify('Finalizó el Juego. Por favor espere el Resultado');
         }else{
             var opciones = Math.floor(Math.random() * (4-1) + 1);
 
@@ -63,7 +59,7 @@
                             resultadoJugado.appendChild(imagen);
                             resultadoCPU.appendChild(imagen_dos);
                             mostrar.innerText = 'Empate Ambos sacaron Piedra';
-                        }, 3000);
+                        }, 1850);
                         break;
                 
                     case 2:
@@ -74,7 +70,7 @@
                             resultadoJugado.appendChild(imagen);
                             resultadoCPU.appendChild(imagen_dos); 
                             mostrar.innerText = 'Empate Ambos sacaron Papel';
-                        }, 3000);
+                        }, 1850);
                         break;
     
                     case 3:
@@ -85,7 +81,7 @@
                             resultadoJugado.appendChild(imagen);
                             resultadoCPU.appendChild(imagen_dos); 
                             mostrar.innerText = 'Empate Ambos sacaron Tijeras';
-                        }, 3000);
+                        }, 1850);
                         break;
                     
                     default:
@@ -105,7 +101,7 @@
                         puntosJugador += 1;
                         puntos();
                         finalizarJuego();
-                    }, 3000);
+                    }, 1850);
                 }else if(opciones == 1 && opcionJugada == 3)
                 {
                     imagen.src = 'assets/img/tijeras.png';
@@ -118,7 +114,7 @@
                         puntosCPU += 1;
                         puntos();
                         finalizarJuego();
-                    }, 3000);
+                    }, 1850);
                 }else if(opciones == 2 && opcionJugada == 1 )
                 {
                     imagen.src = 'assets/img/piedra.png';
@@ -131,7 +127,7 @@
                         puntosCPU += 1;
                         puntos();
                         finalizarJuego();
-                    }, 3000);
+                    }, 1850);
                 }else if(opciones == 2 && opcionJugada == 3)
                 {
                     imagen.src= 'assets/img/tijeras.png';
@@ -144,7 +140,7 @@
                         puntosJugador += 1;
                         puntos();
                         finalizarJuego();
-                    }, 3000);
+                    }, 1850);
                 }else if(opciones == 3 && opcionJugada == 1)
                 {
                     imagen.src= 'assets/img/piedra.png';
@@ -157,7 +153,7 @@
                         puntosJugador += 1;
                         puntos();
                         finalizarJuego();
-                    }, 3000);
+                    }, 1850);
                 }else if(opciones == 3 && opcionJugada == 2)
                 {
                     imagen.src= 'assets/img/papel.png';
@@ -170,9 +166,9 @@
                         puntosCPU += 1;
                         puntos();
                         finalizarJuego();
-                    }, 3000);
+                    }, 1850);
                 }else{
-                    alertify.error('Error. Recarga la Pagina');
+                    alertify.error('Por favor recarga la Pagina');
                 }
             }
         }
@@ -182,6 +178,8 @@
         // Finalizar Juego
         if(limite != 'infinito'){
             if(puntosJugador >= limite || puntosCPU >= limite){
+                document.querySelector("#btns").classList.add('hidden');
+
                 setTimeout(() => {
                     // Notificar Resultado
                     limiteSeleccionado.innerText = '';
@@ -196,7 +194,7 @@
                     }
 
                     document.getElementById("jugarNuevo").classList.remove('hidden');
-                }, 2000);
+                }, 3000);
             }
         }
     }
@@ -211,25 +209,25 @@
         document.getElementById("jugarNuevo").classList.add('hidden');
         if(opcionMenu == 'Si'){
             document.getElementById("presentacion").classList.remove('hidden');
+            document.querySelector("#btns").classList.remove('hidden');
             resultado.innerText = '';
             puntosJugador = 0;
             puntosCPU = 0;
             contadorJugador.innerText = puntosJugador;
             contadorCPU.innerText = puntosCPU;
             mostrar.innerText = 'Seleccione una Opcion para Jugar';
-            imagen.src = 'assets/img/default.png';
+            imagen.src = '';
             resultadoJugado.appendChild(imagen);
-            imagen_dos.src = 'assets/img/default.png';
+            imagen_dos.src = '';
             resultadoCPU.appendChild(imagen_dos);        
         }else if(opcionMenu == 'No'){
             resultado.innerHTML = `
-                <h3 class="text-lg md:text-xl text-center">Gracias por Jugar</h3>
-                <p class="text-gray-600 mt-3 text-sm text-center">by José Hernández</p>
+                <h3 class="text-xl text-center">Gracias por Jugar</h3>
+                <p class="text-gray-600 mt-4 text-center">by José Hernández</p>
             `
             window.location.href = "https://www.google.es";
         }else{
-            // alertify.error('Por favor no sabotee el Juego');
-            alert('Por favor no sabotee el Juego');
+            alertify.warning('Por favor no sabotee el Juego');
         }
     }
 
@@ -238,37 +236,37 @@
         setTimeout(() => {
             imagen_dos.src = 'assets/img/tijeras.png';
             console.log('tijeras');
-        }, 300);
+        }, 200);
         setTimeout(() => {
             imagen_dos.src = 'assets/img/papel.png';
             console.log('papel');
-        }, 600);
+        }, 400);
         setTimeout(() => {
             imagen_dos.src = 'assets/img/piedra.png';
             console.log('piedra');
-        }, 900);
+        }, 600);
         setTimeout(() => {
             imagen_dos.src = 'assets/img/tijeras.png';
             console.log('tijeras');
-        }, 1200);
+        }, 800);
         setTimeout(() => {
             imagen_dos.src = 'assets/img/papel.png';
             console.log('papel');
-        }, 1500);
+        }, 1000);
+        setTimeout(() => {
+            imagen_dos.src = 'assets/img/piedra.png';
+            console.log('piedra');
+        }, 1200);
+        setTimeout(() => {
+            imagen_dos.src = 'assets/img/tijeras.png';
+            console.log('tijeras');
+        }, 1400);
+        setTimeout(() => {
+            imagen_dos.src = 'assets/img/papel.png';
+            console.log('papel');
+        }, 1600);
         setTimeout(() => {
             imagen_dos.src = 'assets/img/piedra.png';
             console.log('piedra');
         }, 1800);
-        setTimeout(() => {
-            imagen_dos.src = 'assets/img/tijeras.png';
-            console.log('tijeras');
-        }, 2100);
-        setTimeout(() => {
-            imagen_dos.src = 'assets/img/papel.png';
-            console.log('papel');
-        }, 2400);
-        setTimeout(() => {
-            imagen_dos.src = 'assets/img/piedra.png';
-            console.log('piedra');
-        }, 2700);
     }

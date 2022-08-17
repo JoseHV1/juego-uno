@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -16,13 +15,13 @@
     <link rel="stylesheet" href="assets/font/brands.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <!-- <link rel="stylesheet" href="assets('css/animated.css"> -->
-    <!-- <link rel="stylesheet" href="assets/alertify/css/alertify.cs"> -->
-    <!-- <script src="assets/alertify/alertify.js"></script> -->
+    <link rel="stylesheet" href="assets/alertify/css/alertify.css">
+    <script src="assets/alertify/alertify.js"></script>
 </head>
 <body>
     <div class="flex justify-center mt-12 py-5 mx-4 md:mt-16 md:mx-20">
         <div id="presentacion">
-            <h3 class="text-center text-3xl font-bold my-2">Bienvenido al Juego</h3>
+            <h3 class="text-center text-3xl md:text-4xl font-bold my-2">Bienvenido al Juego</h3>
             <h3 class="text-center text-2xl font-semibold my-2">Piedra, Papel y Tijeras</h3>
             <div id="opciones" class="text-center mt-7">
                 <select id="limite" class="rounded-md bg-gray-100 opacity-75 p-1 focus:outline-none">
@@ -65,10 +64,10 @@
                     <h5 id="mostrar" class="text-gray-500 my-0 md:my-2"></h5>
                 </div>
         
-                <div class="mt-3 flex flex-col md:flex-row justify-center gap-x-3">
-                    <button id="btnPiedra" type="button" class="bg-green-500 font-bold text-white px-5 py-2 rounded-md my-1 md:m-2 shadow-md" onclick="juego(1)">Piedra</button>
-                    <button id="btn" type="button" class="bg-blue-500 font-bold text-white px-5 py-2 rounded-md my-1 md:m-2 shadow-md" onclick="juego(2)">Papel</button>
-                    <button id="btn" type="button" class="bg-red-500 font-bold text-white px-5 py-2 rounded-md my-1 md:m-2 shadow-md" onclick="juego(3)">Tijeras</button>
+                <div id="btns" class="mt-3 flex flex-col md:flex-row justify-center gap-x-3">
+                    <button type="button" class="bg-green-500 font-bold text-white px-5 py-2 rounded-md my-1 md:m-2 shadow-md" onclick="juego(1)">Piedra</button>
+                    <button type="button" class="bg-blue-500 font-bold text-white px-5 py-2 rounded-md my-1 md:m-2 shadow-md" onclick="juego(2)">Papel</button>
+                    <button type="button" class="bg-red-500 font-bold text-white px-5 py-2 rounded-md my-1 md:m-2 shadow-md" onclick="juego(3)">Tijeras</button>
                 </div>
             </div>
         </div>
@@ -81,73 +80,20 @@
             <div id="jugarNuevo" class="hidden">
                 <h3 class="font-bold text-md md:text-lg my-2 text-center">¿Deseas Jugar de Nuevo?</h3>
                 <div class="flex justify-center mt-3 md:my-1 gap-x-4">
-                    <button type="button" class="rounded-md font-bold text-white bg-blue-500 m-2 shadow-md py-2 px-8 md:px-6" onclick="volverJugar('Si')">Si</button>
-                    <button type="button" class="rounded-md font-bold text-white bg-red-500 m-2 shadow-md py-2 px-8 md:px-6" onclick="volverJugar('No')">No</button>
+                    <button type="button" class="rounded-md font-bold text-white bg-blue-500 m-2 shadow-md py-2 px-10 md:px-6" onclick="volverJugar('Si')">Si</button>
+                    <button type="button" class="rounded-md font-bold text-white bg-red-500 m-2 shadow-md py-2 px-10 md:px-6" onclick="volverJugar('No')">No</button>
                 </div>
             </div>
         </div>
     </div>
     
     <!-- <script src="assets/js/animation.js"></script> -->
-    <!-- <script src="assets/alertify/alertify.min.j"></script> -->
+    <script src="assets/alertify/alertify.min.j"></script>
     <script src="assets/font/font-all.min.js"></script>
     <script src="assets/font/brands.min.js"></script>
     <script src="assets/font/regular.min.js"></script>
     <script src="assets/font/solid.min.js"></script>
     <script src="assets/font/fontawesome.min.js"></script>
     <script src="juego.js"></script>
-=======
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego Uno</title>
-    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
-    <!-- <link rel="stylesheet" href="style.css"> -->
-</head>
-<body>
-    <div id="menu_inicio">
-        <h1>Bienvenido al Juego</h1>
-        <h5>Piedra, Papel y Tijeras</h5>
-        <select id="opciones">
-            <option value="0">Finalizar Juego cuando</option>
-            <option value="5">Alguien Gane 5 partidas</option>
-            <option value="10">Alguien Gane 10 partidas</option>
-            <option value="15">Alguien Gane 15 partidas</option>
-            <option value="20">Alguien Gane 20 partidas</option>
-            <option value="infinito">Nunca</option>
-        </select>
-    </div>
-
-    <div id="area_juego" hidden>
-        <h1>area de juego</h1>
-        <div>
-            <div>
-                <h1>Jugador</h1>
-                <img id="img_jugador" src="" alt="">
-                <h6 id="puntajeJugador"></h6>
-            </div>
-
-            <div>
-                <h1>CPU</h1>
-                <img id="img_cpu" src="" alt="">
-                <h6 id="puntajeCPU"></h6>
-            </div>
-        </div>
-        <h6 id="resultado"></h6>
-        <div>
-            <button type="button" onclick="jugar(1)">Piedra</button>
-            <button type="button" onclick="jugar(2)">Papel</button>
-            <button type="button" onclick="jugar(3)">Tijeras</button>
-        </div>
-    </div>
-
-    <div id="area_volver" hidden>
-        <h4 id="mensajeResultado"></h4>
-        <h3>¿Desea Jugar de Nuevo?</h3>
-    </div>
-
-    <script src="src/funciones.js"></script>
->>>>>>> 37551aacfaf0672aaf66686be4c3ae12a5f3c6fe
 </body>
 </html>

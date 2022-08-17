@@ -3130,7 +3130,7 @@
                 `
                     <div class="mb-2">
                         <i class="fa fa-bullhorn mr-2" aria-hidden="true"></i>
-                        <b class="font-weight-bold"> Notificación !</b>
+                        <b class="font-weight-bold">Notificación</b>
                     </div>
                     ${message}
                 `, wait);
@@ -3168,7 +3168,7 @@
                 `
                     <div class="mb-2">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
-                        <b class="font-weight-bold"> Éxito !</b>
+                        <b class="font-weight-bold">Éxito</b>
                     </div>
                     ${message}
                 `, wait);
@@ -3187,7 +3187,7 @@
                 `
                     <div class="mb-2">
                         <i class="fa fa-exclamation-triangle mr-2" aria-hidden="true"></i>
-                        <b class="font-weight-bold">Error !</b>
+                        <b class="font-weight-bold">Error</b>
                     </div>
                     ${message}
                 `, wait);
@@ -3206,7 +3206,7 @@
                 `
                     <div class="mb-2">
                         <i class="fa fa-info-circle mr-2" aria-hidden="true"></i>
-                        <b class="font-weight-bold">Alerta !</b>
+                        <b class="font-weight-bold">Alerta</b>
                     </div>
                     ${message}
                 `, wait);
