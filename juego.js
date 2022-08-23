@@ -2,6 +2,7 @@
     // Inicio
     const btnJugar = document.getElementById("btnJugar");
     const contenedorJuego = document.getElementById("juego");
+    const imagenFin = document.getElementById("imgContenedor");
     var opcion = document.getElementById("limite");
     var limiteSeleccionado = document.getElementById("limiteSeleccionado");
     var limite;
@@ -188,9 +189,9 @@
                     let resultado = document.getElementById("resultado");
 
                     if(puntosJugador > puntosCPU){
-                        resultado.innerText = 'Felicidades! Has Ganado el Juego';
+                        resultado.innerText = '¡Felicidades! Has Ganado el Juego';
                     }else{
-                        resultado.innerText = 'Opsss! Has Perdido el Juego';
+                        resultado.innerText = '¡Opsss! Has Perdido el Juego';
                     }
 
                     document.getElementById("jugarNuevo").classList.remove('hidden');
@@ -206,26 +207,33 @@
 
     // Jugar de Nuevo
     function volverJugar(opcionMenu){
-        document.getElementById("jugarNuevo").classList.add('hidden');
-        if(opcionMenu == 'Si'){
-            document.getElementById("presentacion").classList.remove('hidden');
-            document.querySelector("#btns").classList.remove('hidden');
-            resultado.innerText = '';
-            puntosJugador = 0;
-            puntosCPU = 0;
-            contadorJugador.innerText = puntosJugador;
-            contadorCPU.innerText = puntosCPU;
-            mostrar.innerText = 'Seleccione una Opcion para Jugar';
-            imagen.src = '';
-            resultadoJugado.appendChild(imagen);
-            imagen_dos.src = '';
-            resultadoCPU.appendChild(imagen_dos);        
-        }else if(opcionMenu == 'No'){
-            resultado.innerHTML = `
-                <h3 class="text-xl text-center">Gracias por Jugar</h3>
-                <p class="text-gray-600 mt-4 text-center">by José Hernández</p>
-            `
-            window.location.href = "https://www.google.es";
+        if(opcionMenu == 'Si' || opcionMenu == 'No'){
+            document.getElementById("jugarNuevo").classList.add('hidden');
+            if(opcionMenu == 'Si'){
+                imagenFin.classList.add('hidden');
+                document.getElementById("presentacion").classList.remove('hidden');
+                document.querySelector("#btns").classList.remove('hidden');
+                resultado.innerText = '';
+                puntosJugador = 0;
+                puntosCPU = 0;
+                contadorJugador.innerText = puntosJugador;
+                contadorCPU.innerText = puntosCPU;
+                mostrar.innerText = 'Seleccione una Opcion para Jugar';
+                imagen.src = '';
+                resultadoJugado.appendChild(imagen);
+                imagen_dos.src = '';
+                resultadoCPU.appendChild(imagen_dos);        
+            }else{
+                document.getElementById("notificacion").classList.remove('flex');
+                imagenFin.classList.remove('hidden');
+                resultado.innerHTML = `
+                    <h3 class="text-4xl text-center mt-10 md:mt-0">Gracias por Jugar</h3>
+                `;
+
+                setTimeout(() => {
+                    window.location.href = "https://josehv1.github.io/";
+                }, 1000);
+            }
         }else{
             alertify.warning('Por favor no sabotee el Juego');
         }

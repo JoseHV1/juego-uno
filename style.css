@@ -1,15 +1,19 @@
 .contenedor{
     flex-direction: column;
     min-height: 12rem; 
-    width: 20rem;
+    width: auto;
 }
 
-img{
-    width: 6rem;
+.contenedor img{
+    width: 7rem;
+}
+
+.card-margenes{
+    height: 73vh;
 }
 
 @media screen and (max-width: 768px){
-    .contenedor{
-        width: 15rem;
+    .card-margenes{
+        height: 82vh;
     }
 }
