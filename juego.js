@@ -38,9 +38,11 @@
 
     // Imagenes
     var imagen = document.createElement('img');
-    resultadoJugado.appendChild(imagen);
+    imagen.src = 'assets/img/signo_pregunta.png';
+    resultadoJugado.appendChild(imagen)
 
     var imagen_dos = document.createElement('img');
+    imagen_dos.src = 'assets/img/signo_pregunta.png';
     resultadoCPU.appendChild(imagen_dos);
 
     // Logica Juego
@@ -219,9 +221,9 @@
                 contadorJugador.innerText = puntosJugador;
                 contadorCPU.innerText = puntosCPU;
                 mostrar.innerText = 'Seleccione una Opcion para Jugar';
-                imagen.src = '';
+                imagen.src = 'assets/img/signo_pregunta.png';
                 resultadoJugado.appendChild(imagen);
-                imagen_dos.src = '';
+                imagen_dos.src = 'assets/img/signo_pregunta.png';
                 resultadoCPU.appendChild(imagen_dos);        
             }else{
                 document.getElementById("notificacion").classList.remove('flex');

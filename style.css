@@ -17,3 +17,12 @@
         height: 82vh;
     }
 }
+
+.ftco-footer-social li {
+    list-style: none;
+    margin: 0 10px 0 0;
+    display: inline-block; }
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none; }
